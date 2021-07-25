@@ -6,7 +6,7 @@ Firstly, configure the package template by changing the information in `./initia
 ./create-npm-package $PACKAGE_NAME $PACKAGE_DESCRIPTION`
 ```
 
-Call the following to create the package repository (requires (hub)[https://github.com/github/hub]):
+Call the following to create the package repository (requires [hub](https://github.com/github/hub)):
 
 ```
 hub create $PACKAGE_NAME
