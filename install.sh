@@ -53,7 +53,8 @@ __path_resolve() ( # Execute the function in a subshell to localize side effects
   else
     command printf '%s\n' "${targetDir%/}/$fname"
   fi
-
-  echo END
 )
+
+resolved_create_script_path="$(__path_resolve "./create-npm-package.sh")"
+sudo ln -s "${resolved_create_script_path}" /usr/bin/create-npm-package
 

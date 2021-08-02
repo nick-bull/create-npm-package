@@ -60,8 +60,6 @@ __path_resolve() ( # Execute the function in a subshell to localize side effects
   else
     command printf '%s\n' "${targetDir%/}/$fname"
   fi
-
-  echo END
 )
 
 if test -z "$1"; then
