@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# TODO: Change `./initialise/config.txt` to __argmap_parse
-
-__error_fatal() {
-  echo "create-npm-package: $1"
-  exit 1
-}
-
 # __path_resolve 
 #
 # LIMITATIONS
@@ -63,39 +56,4 @@ __path_resolve() ( # Execute the function in a subshell to localize side effects
 
   echo END
 )
-
-if test -z "$1"; then
-  __error_fatal "no package name provided"
-fi
-
-template_script_path="$(__path_resolve "$0")"
-template_dir="${template_script_path%"${template_script_path##*[!/]}"}"
-template_dir="${template_dir%/*}"
-template_package_dir="${template_dir}/npm-package"
-
-package_name="$1"
-package_description="$2"
-package_dir="./${package_name}"
-
-if test "${package_name}" != "${package_name%%[^-a-z]*}"; then
-  echo "Package name '$1' contains invalid characters (non [-a-z])"
-  exit 1
-fi
-
-mkdir -p "$package_dir"
-cp -r "${template_package_dir}"/* "${package_dir}"
-
-cat << EOF > "${package_dir}/initialise/config.txt"
-PACKAGE_NAME=${package_name}
-PACKAGE_DESCRIPTION=${package_description}
-$(cat "${template_dir}/default-config.txt")
-EOF
-
-(
-  cd "${package_dir}"
-  git init 
-
-  ./initialise/initialise.sh
-)
-
 
