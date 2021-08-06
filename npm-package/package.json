@@ -40,12 +40,12 @@
     "publish:patch": "npm run eslint && npm version patch && npm run publish:public",
     "publish:minor": "npm run eslint && npm version minor && npm run publish:public",
     "publish:major": "npm run eslint && npm version major && npm run publish:public",
+    "lint": "npx eslint **/src/**/*.js",
+    "lint:files": "npm run eslint | grep ^[\\w/].*\\.js",
     "test": "jest --verbose --coverage --passWithNoTests",
     "test:update": "npm test --updateSnapshot",
     "test:watch": "jest --verbose --watch",
-    "test:coverage": "npm test && open ./coverage/lcov-report/index.html",
-    "eslint": "npx eslint **/src/**/*.js",
-    "eslint:files": "npm run eslint | grep ^[\\w/].*\\.js"
+    "test:coverage": "npm test && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {},
   "devDependencies": {
@@ -56,6 +56,9 @@
     "@babel/runtime": "^7.13.10",
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
     "jest": "^26.6.3",
     "prettier": "^2.2.1"
   },
