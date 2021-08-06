@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/<<AUTHOR_USERNAME>>/<<PACKAGE_NAME>>#readme",
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "dev": "node --es-module-specifier-resolution=node src/index.js",
+    "build": "NODE_OPTIONS=--experimental-json-modules babel src --out-dir lib",
+    "dev": "node --experimental-json-modules --es-module-specifier-resolution=node src/index.js",
     "start": "node lib/index.js",
     "gh:push": "git push -u origin master",
     "prepublishOnly": "npm run build",
@@ -57,7 +57,6 @@
     "babel-jest": "^26.6.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "jest": "^26.6.3",
-    "load-json-file": "^6.2.0",
     "prettier": "^2.2.1"
   },
   "jest": {
