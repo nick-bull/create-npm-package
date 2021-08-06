@@ -81,7 +81,7 @@ if test "${package_name}" != "${package_name%%[^-a-z]*}"; then
 fi
 
 mkdir -p "$package_dir"
-cp -r "${template_package_dir}"/* "${package_dir}"
+cp -r "${template_package_dir}"/. "${package_dir}"
 
 cat << EOF > "${package_dir}/initialise/config.txt"
 PACKAGE_NAME=${package_name}
