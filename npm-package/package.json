@@ -1,13 +1,13 @@
 {
   "name": "@<<PACKAGE_SCOPE>>/<<PACKAGE_NAME>>",
   "type": "module",
-  "main": "lib/index.js",
+  "main": "./src/index.js",
   "imports": {
     "#root": "./src",
     "#root/*": "./src/*"
   },
   "exports": {
-    "export": "./index.js",
+    "import": "./src/index.js",
     "require": "./lib/index.js"
   },
   "description": "<<PACKAGE_DESCRIPTION>>",
@@ -37,9 +37,9 @@
     "gh:push": "git push -u origin master",
     "prepublishOnly": "npm run build",
     "publish:public": "npm publish --access public",
-    "publish:patch": "npm run eslint && npm version patch && npm run publish:public",
-    "publish:minor": "npm run eslint && npm version minor && npm run publish:public",
-    "publish:major": "npm run eslint && npm version major && npm run publish:public",
+    "publish:patch": "npm run lint && npm version patch && npm run publish:public",
+    "publish:minor": "npm run lint && npm version minor && npm run publish:public",
+    "publish:major": "npm run lint && npm version major && npm run publish:public",
     "lint": "npx eslint **/src/**/*.js",
     "lint:files": "npm run eslint | grep ^[\\w/].*\\.js",
     "test": "jest --verbose --coverage --passWithNoTests",
