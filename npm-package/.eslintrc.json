@@ -9,5 +9,8 @@
         "sourceType": "module"
     },
     "extends": "airbnb-base",
-    "rules": {}
+    "rules": {
+        "object-curly-spacing": 0,
+        "import/prefer-default-export": "off"
+    }
 }

@@ -40,7 +40,7 @@
     "publish:patch": "npm run lint && npm version patch && npm run publish:public",
     "publish:minor": "npm run lint && npm version minor && npm run publish:public",
     "publish:major": "npm run lint && npm version major && npm run publish:public",
-    "lint": "npx eslint **/src/**/*.js",
+    "lint": "npx eslint **/src/**/*.js --fix",
     "lint:files": "npm run eslint | grep ^[\\w/].*\\.js",
     "test": "jest --verbose --coverage --passWithNoTests",
     "test:update": "npm test --updateSnapshot",
