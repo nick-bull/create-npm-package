@@ -42,10 +42,10 @@
     "publish:major": "npm run lint && npm version major && npm run publish:public",
     "lint": "npx eslint **/src/**/*.js --fix",
     "lint:files": "npm run eslint | grep ^[\\w/].*\\.js",
-    "test": "jest --verbose --coverage --passWithNoTests",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --verbose --coverage --passWithNoTests",
+    "test:coverage": "npm test && open ./coverage/lcov-report/index.html",
     "test:update": "npm test --updateSnapshot",
-    "test:watch": "jest --verbose --watch",
-    "test:coverage": "npm test && open ./coverage/lcov-report/index.html"
+    "test:watch": "npm test -- --watch"
   },
   "dependencies": {},
   "devDependencies": {
@@ -63,6 +63,8 @@
     "prettier": "^2.2.1"
   },
   "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {},
     "testMatch": [
       "<rootDir>/tests/**/*.[jt]s?(x)"
     ],
